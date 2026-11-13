@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root{
+  --bg:#000;
+  --panel:#050505;
+  --panel-2:#0a0a0a;
+  --text:#fff;
+  --muted:#c9c9c9;
+  --red:#c700c7;
+  --yellow:#ff00c8;
+  --pink:#ff96cb;
+  --gray:#777;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#000}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  background:#000;
+  font-family:'VT323',monospace;
+  font-size:22px;
+  letter-spacing:.3px;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.13;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:31px 31px;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(transparent 50%,rgba(255,255,255,.025) 50%);
+  background-size:100% 4px;
+  opacity:.22;
+}
+
+.page-glow{display:none}
+
+.hero{
+  max-width:1450px;
+  margin:auto;
+  padding:28px 30px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  border-bottom:3px solid #fff;
+}
+
+.hero-title{display:flex;align-items:center;gap:22px}
+.dumbbell{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  color:var(--red);
+  font-size:0;
+  border:3px solid var(--red);
+}
+.dumbbell:after{
+  content:'♥';
+  font-size:34px;
+  line-height:1;
+}
+
+h1{
+  margin:0;
+  font-family:'Press Start 2P',monospace;
+  font-size:clamp(20px,3vw,38px);
+  line-height:1.45;
+  font-weight:400;
+  letter-spacing:0;
+  text-shadow:3px 3px 0 #222;
+}
+h1 span{color:var(--pink)}
+.hero p{
+  margin:10px 0 0;
+  font-size:27px;
+  letter-spacing:3px;
+  color:#fff;
+}
+.hero p strong{color:var(--yellow)}
+
+.motto{display:flex;align-items:center;gap:18px;color:#fff;font-style:normal}
+.motto-line{height:70px;width:3px;background:#fff}
+.motto span{display:block;font-size:20px;line-height:1.05}
+.heart{font-size:42px;color:var(--red);margin-left:8px}
+
+.day-nav{
+  max-width:1450px;
+  margin:18px auto 22px;
+  padding:0 20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.day-btn{
+  flex:1 1 120px;
+  padding:13px 16px;
+  border:3px solid #fff;
+  border-radius:0;
+  color:#fff;
+  background:#000;
+  font:400 22px 'VT323',monospace;
+  cursor:pointer;
+  transition:.12s ease;
+  box-shadow:4px 4px 0 #333;
+}
+.day-btn:hover{color:var(--pink);border-color:var(--pink);transform:none}
+.day-btn.active{
+  color:#000;
+  background:#fff;
+  border-color:#fff;
+  box-shadow:4px 4px 0 var(--red);
+}
+.day-btn.green.active,.day-btn.blue.active,.day-btn.orange.active,.day-btn.pink.active,.day-btn.purple.active{
+  color:#000;
+  background:#fff;
+  border-color:#fff;
+}
+
+main{max-width:1450px;margin:auto;padding:0 20px 25px}
+
+.workout{
+  display:grid;
+  grid-template-columns:34% 66%;
+  min-height:150px;
+  margin:0 0 14px;
+  border:3px solid #fff;
+  border-radius:0;
+  overflow:hidden;
+  background:#000;
+  box-shadow:6px 6px 0 #222;
+  transition:.12s ease;
+}
+.workout:hover{border-color:var(--pink);box-shadow:6px 6px 0 var(--pink)}
+.workout.hidden{display:none}
+
+.day-panel{
+  position:relative;
+  display:grid;
+  grid-template-columns:125px 62px 1fr;
+  align-items:center;
+  gap:18px;
+  padding:12px 22px;
+  border-right:3px solid #fff;
+  background:#030303;
+}
+.day-name{
+  align-self:start;
+  font:400 32px 'VT323',monospace;
+  color:#fff;
+  padding-top:4px;
+}
+.muscle-icon{
+  font-size:0;
+  color:var(--pink);
+  text-align:center;
+  filter:none;
+}
+.muscle-icon:after{
+  content:'♥';
+  font-size:52px;
+}
+.separator{height:65%;width:3px;background:#fff;border-radius:0}
+.day-panel h2{
+  margin:0;
+  color:#fff;
+  font:400 25px/1.05 'VT323',monospace;
+  letter-spacing:1px;
+}
+
+.exercise-panel{min-width:0}
+.table-head,.exercise{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 110px 250px;
+  align-items:center;
+}
+.table-head{
+  min-height:43px;
+  padding:0 22px;
+  color:var(--yellow);
+  font:400 23px 'VT323',monospace;
+  letter-spacing:1px;
+  background:#111;
+  border-bottom:2px solid #fff;
+}
+.table-head span:nth-child(2),.table-head span:nth-child(3),
+.exercise b{text-align:center}
+.exercise{
+  min-height:42px;
+  padding:0 22px;
+  border-top:1px solid #444;
+  color:#fff;
+  font:400 21px 'VT323',monospace;
+}
+.exercise:nth-child(even){background:#080808}
+.exercise b{font-weight:400;color:#fff}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1.45fr 1.25fr;
+  gap:16px;
+  margin-top:22px;
+}
+.info-card{
+  min-height:155px;
+  display:flex;
+  gap:17px;
+  padding:20px;
+  border:3px solid #fff;
+  border-radius:0;
+  background:#000;
+  box-shadow:5px 5px 0 #333;
+}
+.info-icon{
+  flex:0 0 42px;
+  font-size:0;
+  line-height:1;
+  color:var(--pink);
+}
+.info-icon:after{content:'♥';font-size:38px}
+.info-card h3{
+  margin:0 0 10px;
+  color:var(--pink);
+  font:400 25px 'VT323',monospace;
+  letter-spacing:1px;
+}
+.info-card p,.info-card li{
+  margin:0;
+  color:#fff;
+  font:400 20px/1.3 'VT323',monospace;
+}
+.info-card ul{margin:0;padding-left:20px}
+.info-card li{margin:3px 0}
+
+.info-images{
+  min-height:155px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  overflow:hidden;
+  border:3px solid #fff;
+  background:#000;
+  padding:7px;
+  border-radius:0;
+  box-shadow:5px 5px 0 #333;
+}
+.info-images img{
+  width:100%;
+  height:139px;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+  background:#000;
+  border:1px solid #555;
+  border-radius:0;
+}
+
+footer{
+  max-width:1450px;
+  margin:0 auto;
+  padding:22px 25px 32px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+  color:#fff;
+}
+.footer-line{height:3px;flex:1;background:#fff}
+footer p{
+  margin:0;
+  white-space:nowrap;
+  font:400 20px 'VT323',monospace;
+  letter-spacing:2px;
+}
+footer p span{color:var(--pink)}
+.footer-heart{position:absolute;left:50%;transform:translateX(-50%);margin-top:70px;color:var(--pink);font-size:25px}
+
+@media (max-width:1000px){
+  .hero{align-items:flex-start;padding-left:22px;padding-right:22px}
+  .motto{display:none}
+  .workout{grid-template-columns:1fr}
+  .day-panel{
+    grid-template-columns:110px 65px 4px minmax(0,1fr);
+    min-height:105px;
+    border-right:0;
+    border-bottom:3px solid #fff;
+  }
+  .day-name{align-self:center}
+  .day-panel h2{grid-column:4}
+  .info-grid{grid-template-columns:1fr}
+}
+
+@media (max-width:700px){
+  body{overflow-x:hidden}
+  .hero{width:100%;padding:20px 14px 14px}
+  .hero-title{width:100%;gap:10px}
+  .dumbbell{display:none}
+  h1{font-size:clamp(15px,5vw,25px);line-height:1.4}
+  .hero p{margin-top:8px;font-size:19px;letter-spacing:2px}
+  .day-nav{width:100%;padding:0 10px;gap:7px;margin-bottom:15px}
+  .day-btn{flex:1 1 calc(33.333% - 7px);min-width:0;padding:10px 5px;font-size:19px}
+  main{width:100%;padding:0 9px 15px}
+  .workout{width:100%;margin-bottom:12px;border-width:2px}
+  .day-panel{width:100%;grid-template-columns:76px 45px 3px minmax(0,1fr);gap:9px;padding:9px 11px;min-height:88px}
+  .day-name{font-size:27px}
+  .muscle-icon:after{font-size:40px}
+  .separator{height:55px;width:3px}
+  .day-panel h2{font-size:21px;line-height:1.05;overflow-wrap:anywhere}
+  .table-head,.exercise{width:100%;grid-template-columns:minmax(0,1fr) 50px 112px;padding-left:9px;padding-right:9px}
+  .table-head{min-height:36px;font-size:17px;letter-spacing:0}
+  .exercise{min-height:42px;font-size:18px;line-height:1.15}
+  .exercise span{min-width:0;overflow-wrap:anywhere}
+  .exercise b{font-size:17px;overflow-wrap:anywhere}
+  .info-grid{gap:12px;margin-top:14px}
+  .info-card{min-height:auto;padding:14px;gap:12px}
+  .info-icon{flex:0 0 34px}
+  .info-icon:after{font-size:31px}
+  .info-card h3{font-size:23px}
+  .info-card p,.info-card li{font-size:17px}
+  .info-images{min-height:150px;padding:6px}
+  .info-images img{height:136px}
+  footer{width:100%;padding:15px 12px 38px;gap:8px}
+  footer p{font-size:16px;letter-spacing:1px;white-space:normal;text-align:center}
+  .footer-heart{margin-top:65px}
+}
+
+@media (max-width:430px){
+  .hero{padding-top:17px}
+  h1{font-size:16px}
+  .hero p{font-size:17px;letter-spacing:1px}
+  .day-btn{flex-basis:30%;font-size:17px;padding:9px 4px}
+  .day-panel{grid-template-columns:68px 39px 3px minmax(0,1fr);gap:7px;padding:8px 9px}
+  .day-name{font-size:25px}
+  .muscle-icon:after{font-size:34px}
+  .day-panel h2{font-size:18px}
+  .table-head,.exercise{grid-template-columns:minmax(0,1fr) 42px 100px}
+  .table-head{font-size:14px}
+  .exercise{font-size:16px}
+  .exercise b{font-size:15px}
+  .info-card{padding:12px}
+  .info-card p,.info-card li{font-size:16px}
+  footer p{font-size:14px}
+}
+
+@media (max-width:360px){
+  .hero h1{font-size:14px}
+  .hero p{font-size:15px}
+  .day-btn{font-size:15px}
+  .day-panel{grid-template-columns:61px 34px 2px minmax(0,1fr);gap:6px}
+  .day-name{font-size:22px}
+  .muscle-icon:after{font-size:30px}
+  .day-panel h2{font-size:16px}
+  .table-head,.exercise{grid-template-columns:minmax(0,1fr) 38px 88px}
+  .table-head{font-size:12px}
+  .exercise{font-size:15px}
+  .exercise b{font-size:14px}
+}
+
+::selection {
+  background-color: #ff00dd; 
+  color: #ffffff;          
+}
